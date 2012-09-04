@@ -129,10 +129,10 @@
 @synthesize alertViewController = _alertViewController;
 @synthesize overlayWindow = _overlayWindow;
 
-const CGFloat kTSAlertView_LeftMargin	= 10.0;
+const CGFloat kTSAlertView_LeftMargin	= 18.0;
 const CGFloat kTSAlertView_TopMargin	= 16.0;
-const CGFloat kTSAlertView_BottomMargin = 15.0;
-const CGFloat kTSAlertView_RowMargin	= 5.0;
+const CGFloat kTSAlertView_BottomMargin = 22.0;
+const CGFloat kTSAlertView_RowMargin	= 8.0;
 const CGFloat kTSAlertView_ColumnMargin = 10.0;
 
 #pragma mark --Init block
@@ -248,6 +248,7 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 - (void) drawRect:(CGRect)rect
 {
 	[self.backgroundImage drawInRect: rect];
+    drawGloss(self.bounds);
 }
 
 #pragma mark --Setters and Getters
@@ -837,6 +838,71 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 		
 		[self releaseWindow: buttonIndex];
 	}
+}
+
+#pragma mark --Gloss functions
+
+static void addRoundedRectToPath (CGContextRef context, CGRect rect, CGFloat ovalWidth, CGFloat ovalHeight) {
+    float fw, fh;
+    if (ovalWidth<=0 || ovalHeight<=0)  {
+        CGContextAddRect(context, rect);
+        return;
+    }
+    CGContextSaveGState(context);
+    CGContextTranslateCTM (context, CGRectGetMinX(rect), CGRectGetMinY(rect));
+    CGContextScaleCTM (context, ovalWidth, ovalHeight);
+    fw = CGRectGetWidth (rect) / ovalWidth;
+    fh = CGRectGetHeight (rect) / ovalHeight;
+    CGContextMoveToPoint(context, fw, fh/2);
+    CGContextAddArcToPoint(context, fw, fh, fw/2, fh, 1);
+    CGContextAddArcToPoint(context, 0, fh, 0, fh/2, 1);
+    CGContextAddArcToPoint(context, 0, 0, fw/2, 0, 1);
+    CGContextAddArcToPoint(context, fw, 0, fw, fh/2, 1);
+    CGContextClosePath(context);
+    CGContextRestoreGState(context);
+}
+
+static void addGlossPath(CGContextRef context, CGRect rect) {
+    CGFloat quarterHeight = CGRectGetMidY(rect) / 3;
+    CGContextSaveGState(context);
+    CGContextBeginPath(context);
+    CGContextMoveToPoint(context, -20, 0);
+    
+    CGContextAddLineToPoint(context, -20, quarterHeight);
+    CGContextAddQuadCurveToPoint(context, CGRectGetMidX(rect), quarterHeight*2, CGRectGetMaxX(rect) + 20, quarterHeight);
+    CGContextAddLineToPoint(context, CGRectGetMaxX(rect) +20, 0);
+    
+    CGContextClosePath(context);
+    CGContextRestoreGState(context);
+}
+
+void drawGloss(CGRect bounds) {
+    CGFloat locations[2] = {0.0, 1.0};
+    CGFloat components[8] = {1.0, 1.0, 1.0, 0.1, 1.0, 1.0, 1.0, .01};
+    CGGradientRef glossGradient;
+    CGColorSpaceRef rgbColorspace;
+    CGPoint topCenter = CGPointMake(CGRectGetMidX(bounds), 0.0f);
+    CGPoint midCenter = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds));
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    UIGraphicsPushContext(context);
+    
+    addRoundedRectToPath(context, CGRectInset(bounds, 9.0f, 13.0f), 10, 10);
+    CGContextClosePath(context);
+    CGContextClip(context);
+    
+    addGlossPath(context, bounds);
+    CGContextClip(context);
+    
+    rgbColorspace = CGColorSpaceCreateDeviceRGB();
+    glossGradient = CGGradientCreateWithColorComponents(rgbColorspace, components, locations, 2);
+    
+    CGContextDrawLinearGradient(context, glossGradient, topCenter, midCenter, 0);
+    
+    UIGraphicsPopContext();
+    
+    CGGradientRelease(glossGradient);
+    CGColorSpaceRelease(rgbColorspace);
 }
 
 @end
