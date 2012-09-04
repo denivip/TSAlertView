@@ -7,6 +7,7 @@
 
 #import "TSAVDemoViewController.h"
 #import "TSAlertView.h"
+#import "fonts.h"
 
 @implementation TSAVDemoViewController
 
