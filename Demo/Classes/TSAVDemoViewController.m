@@ -48,21 +48,24 @@
 	[_widthTextField resignFirstResponder];
 	[_maxHeightTextField resignFirstResponder];
 	
-	TSAlertView* av = [[[TSAlertView alloc] init] autorelease];
-	av.title = _titleTextField.text;
-	av.message = _messageTextView.text;
-	
-	for ( int i = 0 ; i < [_buttonCountTextField.text intValue] ; i++ )
-	{
-		[av addButtonWithTitle: [NSString stringWithFormat: @"Button %d", i]];
-	}
-	
-	av.style = _hasInputFieldSwitch.on ? TSAlertViewStyleInput : TSAlertViewStyleNormal;
-	av.buttonLayout = _stackedSwitch.on ? TSAlertViewButtonLayoutStacked : TSAlertViewButtonLayoutNormal;
-	av.usesMessageTextView = _usesTextViewSwitch.on;
-	
-	av.width = [_widthTextField.text floatValue];
-	av.maxHeight = [_maxHeightTextField.text floatValue];
+	TSAlertView *av = [[TSAlertView alloc] initWithResBundleName:@"res"];
+    
+	av.title = @"";
+    UIFont *font = REGULAR_FONT_OF_SIZE(14);
+    [av setMessageFont:font];
+	av.message = @"Съешь ещё этих мягких французских булок да выпей чаю в нашем приложении всего за $99.99";
+    
+    [av setMessageShadowOffset:CGSizeMake(0, -1)];
+    [av setMessageShadowColor:[UIColor blackColor]];
+    
+    UIFont *buttonFont = BOLD_FONT_OF_SIZE(19);
+    
+	[av addButtonWithTitle:@"Button1" Font:buttonFont];
+	[av addButtonWithTitle:@"Button2" Font:buttonFont];
+    
+    [av setButtonsShadowOffset:CGSizeMake(0, 1)];
+    [av setButtonsShadowColor:[UIColor whiteColor]];
+    [av setButtonsTextColor:[UIColor blackColor]];
 
 	[av show];
 }

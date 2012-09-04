@@ -24,6 +24,13 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		745D8BA015EFBAB200875A00 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 745D8B9E15EFBAB200875A00 /* OpenSans-Bold.ttf */; };
+		745D8BA115EFBAB200875A00 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 745D8B9F15EFBAB200875A00 /* OpenSans-Regular.ttf */; };
+		748DA5FA15F5DDF8000021EB /* res.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 748DA5F915F5DDF8000021EB /* res.bundle */; };
+		74B143D215F4A51A00999315 /* bg_alert@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74B143D115F4A51A00999315 /* bg_alert@2x.png */; };
+		74C8EE5915EF55FD00308E15 /* bg_alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C8EE5815EF55FD00308E15 /* bg_alert.png */; };
+		74C8EE5C15EF5F8F00308E15 /* btn_alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C8EE5A15EF5F8F00308E15 /* btn_alert.png */; };
+		74C8EE5D15EF5F8F00308E15 /* btn_alert@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C8EE5B15EF5F8F00308E15 /* btn_alert@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +57,14 @@
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* TSAVDemo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAVDemo_Prefix.pch; sourceTree = "<group>"; };
+		745D8B9E15EFBAB200875A00 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Bold.ttf"; path = "../../../../Downloads/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		745D8B9F15EFBAB200875A00 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "../../../../Downloads/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		745D8C1015EFBB5800875A00 /* fonts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fonts.h; sourceTree = "<group>"; };
+		748DA5F915F5DDF8000021EB /* res.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = res.bundle; path = ../../dump/TSAlertView/res.bundle; sourceTree = "<group>"; };
+		74B143D115F4A51A00999315 /* bg_alert@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_alert@2x.png"; sourceTree = "<group>"; };
+		74C8EE5815EF55FD00308E15 /* bg_alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_alert.png; sourceTree = "<group>"; };
+		74C8EE5A15EF5F8F00308E15 /* btn_alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_alert.png; sourceTree = "<group>"; };
+		74C8EE5B15EF5F8F00308E15 /* btn_alert@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_alert@2x.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* TSAVDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TSAVDemo-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +85,10 @@
 		01A5389712E954E400B0F4A4 /* TSAlertView */ = {
 			isa = PBXGroup;
 			children = (
+				74B143D115F4A51A00999315 /* bg_alert@2x.png */,
+				74C8EE5A15EF5F8F00308E15 /* btn_alert.png */,
+				74C8EE5B15EF5F8F00308E15 /* btn_alert@2x.png */,
+				74C8EE5815EF55FD00308E15 /* bg_alert.png */,
 				01A5389812E954E400B0F4A4 /* TSAlertView.h */,
 				01A5389912E954E400B0F4A4 /* TSAlertView.m */,
 				01A5389A12E954E400B0F4A4 /* TSAlertViewMessageListViewShadow.png */,
@@ -94,6 +113,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				748DA5F915F5DDF8000021EB /* res.bundle */,
+				745D8C0E15EFBB2E00875A00 /* fonts */,
 				013DD51A12ECF0D300B34A41 /* Source Code License.rtf */,
 				0110735812EBA60D00BAC93C /* README.mdown */,
 				01A5399912E9F4A600B0F4A4 /* TSAVDemoViewController.h */,
@@ -137,6 +158,16 @@
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		745D8C0E15EFBB2E00875A00 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				745D8B9E15EFBAB200875A00 /* OpenSans-Bold.ttf */,
+				745D8B9F15EFBAB200875A00 /* OpenSans-Regular.ttf */,
+				745D8C1015EFBB5800875A00 /* fonts.h */,
+			);
+			name = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +229,13 @@
 				01A5399D12E9F4A600B0F4A4 /* TSAVDemoViewController.xib in Resources */,
 				01A5399F12E9F4B500B0F4A4 /* MainWindow-iPad.xib in Resources */,
 				013DD51B12ECF0D300B34A41 /* Source Code License.rtf in Resources */,
+				74C8EE5915EF55FD00308E15 /* bg_alert.png in Resources */,
+				74C8EE5C15EF5F8F00308E15 /* btn_alert.png in Resources */,
+				74C8EE5D15EF5F8F00308E15 /* btn_alert@2x.png in Resources */,
+				745D8BA015EFBAB200875A00 /* OpenSans-Bold.ttf in Resources */,
+				745D8BA115EFBAB200875A00 /* OpenSans-Regular.ttf in Resources */,
+				74B143D215F4A51A00999315 /* bg_alert@2x.png in Resources */,
+				748DA5FA15F5DDF8000021EB /* res.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +261,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -240,6 +280,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TSAVDemo_Prefix.pch;
