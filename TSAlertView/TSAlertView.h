@@ -73,10 +73,10 @@ typedef enum
 @property(nonatomic, retain) TSAlertViewController *alertViewController;
 - (id)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ...;
 - (NSInteger)addButtonWithTitle:(NSString *)title;
+- (NSInteger)addButtonWithTitle:(NSString *)title Font:(UIFont *)font;
 - (NSString *)buttonTitleAtIndex:(NSInteger)buttonIndex;
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated;
 - (void)show;
-
 @end
 
 

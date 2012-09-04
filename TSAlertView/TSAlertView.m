@@ -133,6 +133,8 @@ const CGFloat kTSAlertView_RowMargin	= 5.0;
 const CGFloat kTSAlertView_ColumnMargin = 10.0;
 
 #pragma mark --Init block
+
+- (id) init
 {
 	if ( ( self = [super init] ) )
 	{
@@ -411,26 +413,8 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 
 }
 
-- (NSInteger) addButtonWithTitle: (NSString *) t
-{
-	UIButton* b = [UIButton buttonWithType: UIButtonTypeCustom];
-	[b setTitle: t forState: UIControlStateNormal];
-	
-	UIImage* buttonBgNormal = [UIImage imageNamed: @"TSAlertViewButtonBackground.png"];
-	buttonBgNormal = [buttonBgNormal stretchableImageWithLeftCapWidth: buttonBgNormal.size.width / 2.0 topCapHeight: buttonBgNormal.size.height / 2.0];
-	[b setBackgroundImage: buttonBgNormal forState: UIControlStateNormal];
-	
-	UIImage* buttonBgPressed = [UIImage imageNamed: @"TSAlertViewButtonBackground_Highlighted.png"];
-	buttonBgPressed = [buttonBgPressed stretchableImageWithLeftCapWidth: buttonBgPressed.size.width / 2.0 topCapHeight: buttonBgPressed.size.height / 2.0];
-	[b setBackgroundImage: buttonBgPressed forState: UIControlStateHighlighted];
-	
-	[b addTarget: self action: @selector(onButtonPress:) forControlEvents: UIControlEventTouchUpInside];
-	
-	[self.buttons addObject: b];
-	
-	[self setNeedsLayout];
-	
-	return self.buttons.count-1;
+-(void)setButtonsShadowColor:(UIColor *)color {
+    for (UIButton  *b in self.buttons) [b setTitleShadowColor:color forState:UIControlStateNormal];
 }
 
 }
@@ -733,6 +717,33 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
     return i;
 }
 
+- (NSInteger) addButtonWithTitle: (NSString *) t Font:(UIFont *)font
+{
+    UIButton* b = [UIButton buttonWithType: UIButtonTypeCustom];
+	[b setTitle: t forState: UIControlStateNormal];
+    [b.titleLabel setFont:font];
+	
+    NSString *path = [self.resourceBundle pathForResource:@"btn_alert" ofType:@"png"];
+	UIImage* buttonBgNormal = [[UIImage alloc] initWithContentsOfFile:path];
+	buttonBgNormal = [buttonBgNormal stretchableImageWithLeftCapWidth: buttonBgNormal.size.width / 2.0 topCapHeight: buttonBgNormal.size.height / 2.0];
+	[b setBackgroundImage: buttonBgNormal forState: UIControlStateNormal];
+	
+    //	UIImage* buttonBgPressed = [UIImage imageNamed: @"TSAlertViewButtonBackground_Highlighted.png"];
+    //	buttonBgPressed = [buttonBgPressed stretchableImageWithLeftCapWidth: buttonBgPressed.size.width / 2.0 topCapHeight: buttonBgPressed.size.height / 2.0];
+    //	[b setBackgroundImage: buttonBgPressed forState: UIControlStateHighlighted];
+	
+	[b addTarget: self action: @selector(onButtonPress:) forControlEvents: UIControlEventTouchUpInside];
+	
+    if (!self.hasButtons) {
+        [self.buttons removeAllObjects];
+        self.hasButtons = YES;
+    }
+	[self.buttons addObject: b];
+	
+	[self setNeedsLayout];
+	
+	return self.buttons.count-1;
+}
 
 - (NSString *) buttonTitleAtIndex:(NSInteger)buttonIndex
 {
