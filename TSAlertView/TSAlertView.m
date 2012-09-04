@@ -64,6 +64,7 @@
 
 @interface TSAlertView (private)
 @property (nonatomic, readonly) NSMutableArray* buttons;
+@property (nonatomic, copy) UIFont *messageFont;
 @property (nonatomic, readonly) UILabel* titleLabel;
 @property (nonatomic, readonly) UILabel* messageLabel;
 @property (nonatomic, readonly) UITextView* messageTextView;
@@ -302,7 +303,7 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 	if ( _messageLabel == nil )
 	{
 		_messageLabel = [[UILabel alloc] init];
-		_messageLabel.font = [UIFont systemFontOfSize: 16];
+		_messageLabel.font = _messageFont;
 		_messageLabel.backgroundColor = [UIColor clearColor];
 		_messageLabel.textColor = [UIColor whiteColor];
 		_messageLabel.textAlignment = UITextAlignmentCenter;
@@ -319,7 +320,7 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 	{
 		_messageTextView = [[UITextView alloc] init];
 		_messageTextView.editable = NO;
-		_messageTextView.font = [UIFont systemFontOfSize: 16];
+        _messageTextView.font = _messageFont;
 		_messageTextView.backgroundColor = [UIColor whiteColor];
 		_messageTextView.textColor = [UIColor darkTextColor];
 		_messageTextView.textAlignment = UITextAlignmentLeft;
@@ -385,6 +386,10 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 - (NSString*) message  
 {
 	return self.messageLabel.text;
+}
+
+-(void) setMessageFont:(UIFont *)font {
+    _messageFont = font;
 }
 
 - (NSInteger) numberOfButtons

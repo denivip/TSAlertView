@@ -48,6 +48,7 @@ typedef enum
 	UIImage*				_backgroundImage;
     UILabel*				_titleLabel;
 	UILabel*				_messageLabel;
+    UIFont*                 _messageFont;
 	UITextView*				_messageTextView;
 	UIImageView*			_messageTextViewMaskImageView;
 	UITextField*			_inputTextField;
@@ -77,6 +78,7 @@ typedef enum
 - (NSString *)buttonTitleAtIndex:(NSInteger)buttonIndex;
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated;
 - (void)show;
+- (void)setMessageFont:(UIFont *)font;
 @end
 
 
