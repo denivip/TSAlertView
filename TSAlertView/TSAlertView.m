@@ -392,6 +392,10 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
     _messageFont = font;
 }
 
+-(void)setMessageShadowColor:(UIColor *)color {
+    self.messageLabel.shadowColor = color;
+}
+
 - (NSInteger) numberOfButtons
 {
 	return [self.buttons count];
