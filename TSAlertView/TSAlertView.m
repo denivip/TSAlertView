@@ -424,6 +424,9 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 	[b setBackgroundImage: buttonBgPressed forState: UIControlStateHighlighted];
 }
 
+-(void)setButtonsShadowOffset:(CGSize)shadowOffset {
+    for (UIButton *b in self.buttons) b.titleLabel.shadowOffset =
+        CGSizeMake(shadowOffset.width/self.contentScaleFactor, shadowOffset.height/self.contentScaleFactor);
 }
 
 -(void)setButtonsShadowColor:(UIColor *)color {
