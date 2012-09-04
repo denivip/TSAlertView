@@ -430,6 +430,8 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
     for (UIButton  *b in self.buttons) [b setTitleShadowColor:color forState:UIControlStateNormal];
 }
 
+-(void)setButtonsTextColor:(UIColor *)color {
+    for (UIButton *b in self.buttons) [b setTitleColor:color forState:UIControlStateNormal];
 }
 
 #pragma mark --Show view

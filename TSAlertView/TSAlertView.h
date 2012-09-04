@@ -80,6 +80,7 @@ typedef enum
 - (void)show;
 - (void)setMessageFont:(UIFont *)font;
 - (void)setMessageShadowOffset:(CGSize)shadowOffset;
+- (void)setButtonsTextColor:(UIColor *)color;
 - (void)setMessageShadowColor:(UIColor *)color;
 @end
 
