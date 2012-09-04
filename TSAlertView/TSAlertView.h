@@ -23,6 +23,7 @@ typedef enum
 
 @class TSAlertViewController;
 @class TSAlertView;
+@class TSAlertOverlayWindow;
 
 @protocol TSAlertViewDelegate <NSObject>
 @optional
@@ -45,7 +46,7 @@ typedef enum
 @interface TSAlertView : UIView
 {
 	UIImage*				_backgroundImage;
-	UILabel*				_titleLabel;
+    UILabel*				_titleLabel;
 	UILabel*				_messageLabel;
 	UITextView*				_messageTextView;
 	UIImageView*			_messageTextViewMaskImageView;
@@ -68,6 +69,8 @@ typedef enum
 @property(nonatomic, assign) TSAlertViewStyle style;
 @property(nonatomic, readonly) UITextField* inputTextField;
 
+@property(nonatomic, retain) TSAlertOverlayWindow *overlayWindow;
+@property(nonatomic, retain) TSAlertViewController *alertViewController;
 - (id)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ...;
 - (NSInteger)addButtonWithTitle:(NSString *)title;
 - (NSString *)buttonTitleAtIndex:(NSInteger)buttonIndex;
