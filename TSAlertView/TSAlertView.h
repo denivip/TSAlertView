@@ -79,6 +79,7 @@ typedef enum
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated;
 - (void)show;
 - (void)setMessageFont:(UIFont *)font;
+- (void)setMessageShadowOffset:(CGSize)shadowOffset;
 - (void)setMessageShadowColor:(UIColor *)color;
 @end
 

@@ -392,6 +392,10 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
     _messageFont = font;
 }
 
+-(void) setMessageShadowOffset:(CGSize)shadowOffset {
+    self.messageLabel.shadowOffset = CGSizeMake(shadowOffset.width/self.contentScaleFactor, shadowOffset.height/self.contentScaleFactor);
+}
+
 -(void)setMessageShadowColor:(UIColor *)color {
     self.messageLabel.shadowColor = color;
 }
