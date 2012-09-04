@@ -124,6 +124,7 @@
 @synthesize usesMessageTextView;
 @synthesize backgroundImage = _backgroundImage;
 @synthesize style;
+@synthesize hasButtons = _hasButtons;
 @synthesize alertViewController = _alertViewController;
 @synthesize overlayWindow = _overlayWindow;
 
@@ -193,6 +194,23 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 	}
 	
 	return self;
+}
+
+- (void) TSAlertView_commonInit
+{
+	self.backgroundColor = [UIColor clearColor];
+	self.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+	
+	// defaults:
+	style = TSAlertViewStyleNormal;
+	self.width = 0; // set to default
+	self.maxHeight = 0; // set to default
+	buttonLayout = TSAlertViewButtonLayoutNormal;
+	cancelButtonIndex = -1;
+	firstOtherButtonIndex = -1;
+
+    [self.buttons addObject:[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)]];
+    self.hasButtons = NO;
 }
 
 #pragma mark --Deallocate
