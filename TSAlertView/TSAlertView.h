@@ -70,9 +70,12 @@ typedef enum
 @property(nonatomic, assign) TSAlertViewStyle style;
 @property(nonatomic, readonly) UITextField* inputTextField;
 
+@property(nonatomic, retain) NSBundle *resourceBundle;
 @property(nonatomic) BOOL hasButtons;
 @property(nonatomic, retain) TSAlertOverlayWindow *overlayWindow;
 @property(nonatomic, retain) TSAlertViewController *alertViewController;
+
+- (id) initWithResBundleName:(NSString *)bundleName;
 - (id)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ...;
 - (NSInteger)addButtonWithTitle:(NSString *)title;
 - (NSInteger)addButtonWithTitle:(NSString *)title Font:(UIFont *)font;

@@ -124,6 +124,7 @@
 @synthesize usesMessageTextView;
 @synthesize backgroundImage = _backgroundImage;
 @synthesize style;
+@synthesize resourceBundle = _res;
 @synthesize hasButtons = _hasButtons;
 @synthesize alertViewController = _alertViewController;
 @synthesize overlayWindow = _overlayWindow;
@@ -143,6 +144,15 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 		[self TSAlertView_commonInit];
 	}
 	return self;
+}
+
+-(id) initWithResBundleName:(NSString *)bundleName {
+    if (self=[self init]) {
+        self.resourceBundle = [NSBundle bundleWithPath:[[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:  [bundleName stringByAppendingString:@".bundle"]]];
+        if (!self.resourceBundle)  self.resourceBundle = [NSBundle mainBundle];
+    }
+    
+    return self;
 }
 
 - (id) initWithFrame:(CGRect)frame
@@ -379,7 +389,8 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 {
 	if ( _backgroundImage == nil )
 	{
-		self.backgroundImage = [[UIImage imageNamed: @"TSAlertViewBackground.png"] stretchableImageWithLeftCapWidth: 15 topCapHeight: 30];
+        NSString *path = [self.resourceBundle pathForResource:@"bg_alert" ofType:@"png"];
+        self.backgroundImage = [[[UIImage alloc] initWithContentsOfFile:path] stretchableImageWithLeftCapWidth:20 topCapHeight:25];
 	}
 	
 	return _backgroundImage;
