@@ -10,8 +10,6 @@
 		013DD51B12ECF0D300B34A41 /* Source Code License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 013DD51A12ECF0D300B34A41 /* Source Code License.rtf */; };
 		01A538A012E954E400B0F4A4 /* TSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A5389912E954E400B0F4A4 /* TSAlertView.m */; };
 		01A538A112E954E400B0F4A4 /* TSAlertViewMessageListViewShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A5389A12E954E400B0F4A4 /* TSAlertViewMessageListViewShadow.png */; };
-		01A538A212E954E400B0F4A4 /* TSAlertViewBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A5389B12E954E400B0F4A4 /* TSAlertViewBackground.png */; };
-		01A538A312E954E400B0F4A4 /* TSAlertViewBackground2.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A5389C12E954E400B0F4A4 /* TSAlertViewBackground2.png */; };
 		01A538A412E954E400B0F4A4 /* TSAlertViewButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A5389D12E954E400B0F4A4 /* TSAlertViewButtonBackground.png */; };
 		01A538A512E954E400B0F4A4 /* TSAlertViewButtonBackground_Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A5389E12E954E400B0F4A4 /* TSAlertViewButtonBackground_Highlighted.png */; };
 		01A538A612E954E400B0F4A4 /* TSAlertViewCancelButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 01A5389F12E954E400B0F4A4 /* TSAlertViewCancelButtonBackground.png */; };
@@ -35,8 +33,6 @@
 		01A5389812E954E400B0F4A4 /* TSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAlertView.h; sourceTree = "<group>"; };
 		01A5389912E954E400B0F4A4 /* TSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAlertView.m; sourceTree = "<group>"; };
 		01A5389A12E954E400B0F4A4 /* TSAlertViewMessageListViewShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TSAlertViewMessageListViewShadow.png; sourceTree = "<group>"; };
-		01A5389B12E954E400B0F4A4 /* TSAlertViewBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TSAlertViewBackground.png; sourceTree = "<group>"; };
-		01A5389C12E954E400B0F4A4 /* TSAlertViewBackground2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TSAlertViewBackground2.png; sourceTree = "<group>"; };
 		01A5389D12E954E400B0F4A4 /* TSAlertViewButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TSAlertViewButtonBackground.png; sourceTree = "<group>"; };
 		01A5389E12E954E400B0F4A4 /* TSAlertViewButtonBackground_Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TSAlertViewButtonBackground_Highlighted.png; sourceTree = "<group>"; };
 		01A5389F12E954E400B0F4A4 /* TSAlertViewCancelButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TSAlertViewCancelButtonBackground.png; sourceTree = "<group>"; };
@@ -80,8 +76,6 @@
 				01A5389812E954E400B0F4A4 /* TSAlertView.h */,
 				01A5389912E954E400B0F4A4 /* TSAlertView.m */,
 				01A5389A12E954E400B0F4A4 /* TSAlertViewMessageListViewShadow.png */,
-				01A5389B12E954E400B0F4A4 /* TSAlertViewBackground.png */,
-				01A5389C12E954E400B0F4A4 /* TSAlertViewBackground2.png */,
 				01A5389D12E954E400B0F4A4 /* TSAlertViewButtonBackground.png */,
 				01A5389E12E954E400B0F4A4 /* TSAlertViewButtonBackground_Highlighted.png */,
 				01A5389F12E954E400B0F4A4 /* TSAlertViewCancelButtonBackground.png */,
@@ -209,8 +203,6 @@
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				01A538A112E954E400B0F4A4 /* TSAlertViewMessageListViewShadow.png in Resources */,
-				01A538A212E954E400B0F4A4 /* TSAlertViewBackground.png in Resources */,
-				01A538A312E954E400B0F4A4 /* TSAlertViewBackground2.png in Resources */,
 				01A538A412E954E400B0F4A4 /* TSAlertViewButtonBackground.png in Resources */,
 				01A538A512E954E400B0F4A4 /* TSAlertViewButtonBackground_Highlighted.png in Resources */,
 				01A538A612E954E400B0F4A4 /* TSAlertViewCancelButtonBackground.png in Resources */,
