@@ -27,10 +27,6 @@
 		745D8BA015EFBAB200875A00 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 745D8B9E15EFBAB200875A00 /* OpenSans-Bold.ttf */; };
 		745D8BA115EFBAB200875A00 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 745D8B9F15EFBAB200875A00 /* OpenSans-Regular.ttf */; };
 		748DA5FA15F5DDF8000021EB /* res.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 748DA5F915F5DDF8000021EB /* res.bundle */; };
-		74B143D215F4A51A00999315 /* bg_alert@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74B143D115F4A51A00999315 /* bg_alert@2x.png */; };
-		74C8EE5915EF55FD00308E15 /* bg_alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C8EE5815EF55FD00308E15 /* bg_alert.png */; };
-		74C8EE5C15EF5F8F00308E15 /* btn_alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C8EE5A15EF5F8F00308E15 /* btn_alert.png */; };
-		74C8EE5D15EF5F8F00308E15 /* btn_alert@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C8EE5B15EF5F8F00308E15 /* btn_alert@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,10 +57,6 @@
 		745D8B9F15EFBAB200875A00 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "../../../../Downloads/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		745D8C1015EFBB5800875A00 /* fonts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fonts.h; sourceTree = "<group>"; };
 		748DA5F915F5DDF8000021EB /* res.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = res.bundle; path = ../../dump/TSAlertView/res.bundle; sourceTree = "<group>"; };
-		74B143D115F4A51A00999315 /* bg_alert@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_alert@2x.png"; sourceTree = "<group>"; };
-		74C8EE5815EF55FD00308E15 /* bg_alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_alert.png; sourceTree = "<group>"; };
-		74C8EE5A15EF5F8F00308E15 /* btn_alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_alert.png; sourceTree = "<group>"; };
-		74C8EE5B15EF5F8F00308E15 /* btn_alert@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_alert@2x.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* TSAVDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TSAVDemo-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,10 +77,6 @@
 		01A5389712E954E400B0F4A4 /* TSAlertView */ = {
 			isa = PBXGroup;
 			children = (
-				74B143D115F4A51A00999315 /* bg_alert@2x.png */,
-				74C8EE5A15EF5F8F00308E15 /* btn_alert.png */,
-				74C8EE5B15EF5F8F00308E15 /* btn_alert@2x.png */,
-				74C8EE5815EF55FD00308E15 /* bg_alert.png */,
 				01A5389812E954E400B0F4A4 /* TSAlertView.h */,
 				01A5389912E954E400B0F4A4 /* TSAlertView.m */,
 				01A5389A12E954E400B0F4A4 /* TSAlertViewMessageListViewShadow.png */,
@@ -229,12 +217,8 @@
 				01A5399D12E9F4A600B0F4A4 /* TSAVDemoViewController.xib in Resources */,
 				01A5399F12E9F4B500B0F4A4 /* MainWindow-iPad.xib in Resources */,
 				013DD51B12ECF0D300B34A41 /* Source Code License.rtf in Resources */,
-				74C8EE5915EF55FD00308E15 /* bg_alert.png in Resources */,
-				74C8EE5C15EF5F8F00308E15 /* btn_alert.png in Resources */,
-				74C8EE5D15EF5F8F00308E15 /* btn_alert@2x.png in Resources */,
 				745D8BA015EFBAB200875A00 /* OpenSans-Bold.ttf in Resources */,
 				745D8BA115EFBAB200875A00 /* OpenSans-Regular.ttf in Resources */,
-				74B143D215F4A51A00999315 /* bg_alert@2x.png in Resources */,
 				748DA5FA15F5DDF8000021EB /* res.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
