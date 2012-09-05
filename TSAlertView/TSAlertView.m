@@ -365,7 +365,7 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 {
 	if ( _messageTextViewMaskImageView == nil )
 	{
-		UIImage* shadowImage = [[UIImage imageNamed:@"TSAlertViewMessageListViewShadow.png"] stretchableImageWithLeftCapWidth:6 topCapHeight:7];
+		UIImage* shadowImage = [[UIImage imageWithContentsOfFile:[self.resourceBundle pathForResource:@"TSAlertViewMessageListViewShadow" ofType:@"png"]] stretchableImageWithLeftCapWidth:6 topCapHeight:7];
 		
 		_messageTextViewMaskImageView = [[UIImageView alloc] initWithImage: shadowImage];
 		_messageTextViewMaskImageView.userInteractionEnabled = NO;
@@ -445,11 +445,11 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 	
 	UIButton* b = [self.buttons objectAtIndex: buttonIndex];
 	
-	UIImage* buttonBgNormal = [UIImage imageNamed: @"TSAlertViewCancelButtonBackground.png"];
+	UIImage* buttonBgNormal = [UIImage imageWithContentsOfFile:[self.resourceBundle pathForResource:@"TSAlertViewCancelButtonBackground" ofType:@"png"]];
 	buttonBgNormal = [buttonBgNormal stretchableImageWithLeftCapWidth: buttonBgNormal.size.width / 2.0 topCapHeight: buttonBgNormal.size.height / 2.0];
 	[b setBackgroundImage: buttonBgNormal forState: UIControlStateNormal];
 	
-	UIImage* buttonBgPressed = [UIImage imageNamed: @"TSAlertViewButtonBackground_Highlighted.png"];
+	UIImage* buttonBgPressed = [UIImage imageWithContentsOfFile:[self.resourceBundle pathForResource:@"TSAlertViewButtonBackground_Highlighted" ofType:@"png"]];
 	buttonBgPressed = [buttonBgPressed stretchableImageWithLeftCapWidth: buttonBgPressed.size.width / 2.0 topCapHeight: buttonBgPressed.size.height / 2.0];
 	[b setBackgroundImage: buttonBgPressed forState: UIControlStateHighlighted];
 }
