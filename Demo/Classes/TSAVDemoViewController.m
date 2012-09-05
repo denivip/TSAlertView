@@ -60,8 +60,8 @@
     
     UIFont *buttonFont = BOLD_FONT_OF_SIZE(19);
     
-	[av addButtonWithTitle:@"Button1" Font:buttonFont];
-	[av addButtonWithTitle:@"Button2" Font:buttonFont];
+	[av addButtonWithTitle:@"Button1" font:buttonFont];
+	[av addButtonWithTitle:@"Button2" font:buttonFont];
     
     [av setButtonsShadowOffset:CGSizeMake(0, 1)];
     [av setButtonsShadowColor:[UIColor whiteColor]];

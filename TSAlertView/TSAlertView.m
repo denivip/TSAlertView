@@ -761,11 +761,11 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 
 - (NSInteger) addButtonWithTitle: (NSString *) t
 {
-	NSInteger i = [self addButtonWithTitle:t Font:[UIFont fontWithName:@"Arial-bold" size:14]];
+	NSInteger i = [self addButtonWithTitle:t font:[UIFont fontWithName:@"Arial-bold" size:14]];
     return i;
 }
 
-- (NSInteger) addButtonWithTitle: (NSString *) t Font:(UIFont *)font
+- (NSInteger) addButtonWithTitle: (NSString *) t font:(UIFont *)font
 {
     UIButton* b = [UIButton buttonWithType: UIButtonTypeCustom];
 	[b setTitle: t forState: UIControlStateNormal];

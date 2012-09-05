@@ -78,7 +78,7 @@ typedef enum
 - (id) initWithResBundleName:(NSString *)bundleName;
 - (id)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ...;
 - (NSInteger)addButtonWithTitle:(NSString *)title;
-- (NSInteger)addButtonWithTitle:(NSString *)title Font:(UIFont *)font;
+- (NSInteger)addButtonWithTitle:(NSString *)title font:(UIFont *)font;
 - (NSString *)buttonTitleAtIndex:(NSInteger)buttonIndex;
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated;
 - (void)show;
