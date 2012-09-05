@@ -62,11 +62,16 @@
 
 @end
 
-@interface TSAlertView (private)
+@interface TSAlertView ()
 @property (nonatomic, readonly) NSMutableArray* buttons;
 @property (nonatomic, readonly) UILabel* titleLabel;
 @property (nonatomic, readonly) UILabel* messageLabel;
 @property (nonatomic, readonly) UITextView* messageTextView;
+@property (nonatomic, weak) NSBundle *resourceBundle;
+@property (nonatomic) BOOL hasButtons;
+@property (nonatomic, retain) TSAlertViewController *alertViewController;
+@property (nonatomic, retain) TSAlertOverlayWindow *overlayWindow;
+
 - (void) TSAlertView_commonInit;
 - (void) releaseWindow: (int) buttonIndex;
 - (void) pulse;
@@ -77,6 +82,7 @@
 - (CGSize) buttonsAreaSize_SideBySide;
 - (CGSize) recalcSizeAndLayout: (BOOL) layout;
 @end
+
 
 @interface TSAlertViewController : UIViewController
 {
@@ -123,10 +129,6 @@
 @synthesize usesMessageTextView;
 @synthesize backgroundImage = _backgroundImage;
 @synthesize style;
-@synthesize resourceBundle = _res;
-@synthesize hasButtons = _hasButtons;
-@synthesize alertViewController = _alertViewController;
-@synthesize overlayWindow = _overlayWindow;
 
 @synthesize messageFont = _messageFont;
 @synthesize messageShadowOffset = _messageShadowOffset;
@@ -134,6 +136,11 @@
 @synthesize messageShadowColor = _messageShadowColor;
 @synthesize buttonsTextColor = _buttonsTextColor;
 @synthesize buttonsTextShadowColor = _buttonsShadowColor;
+
+@synthesize resourceBundle = _resourceBundle;
+@synthesize hasButtons = _hasButtons;
+@synthesize alertViewController = _alertViewController;
+@synthesize overlayWindow = _overlayWindow;
 
 const CGFloat kTSAlertView_LeftMargin	= 18.0;
 const CGFloat kTSAlertView_TopMargin	= 16.0;

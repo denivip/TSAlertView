@@ -69,17 +69,12 @@ typedef enum
 @property(nonatomic, assign) TSAlertViewStyle style;
 @property(nonatomic, readonly) UITextField* inputTextField;
 
-@property(nonatomic, retain) NSBundle *resourceBundle;
-@property(nonatomic) BOOL hasButtons;
-@property(nonatomic, retain) TSAlertOverlayWindow *overlayWindow;
-@property(nonatomic, retain) TSAlertViewController *alertViewController;
-
-@property (nonatomic, retain) UIFont *messageFont;
+@property (nonatomic, weak) UIFont *messageFont;
 @property (nonatomic) CGSize messageShadowOffset;
 @property (nonatomic) CGSize buttonsTextShadowOffset;
-@property (nonatomic, retain) UIColor *messageShadowColor;
-@property (nonatomic, retain) UIColor *buttonsTextColor;
-@property (nonatomic, retain) UIColor *buttonsTextShadowColor;
+@property (nonatomic, weak) UIColor *messageShadowColor;
+@property (nonatomic, weak) UIColor *buttonsTextColor;
+@property (nonatomic, weak) UIColor *buttonsTextShadowColor;
 
 - (id) initWithResBundleName:(NSString *)bundleName;
 - (id)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ...;
@@ -88,12 +83,6 @@ typedef enum
 - (NSString *)buttonTitleAtIndex:(NSInteger)buttonIndex;
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated;
 - (void)show;
-- (void)setMessageFont:(UIFont *)font;
-- (void)setMessageShadowOffset:(CGSize)shadowOffset;
-- (void)setButtonsShadowOffset:(CGSize)shadowOffset;
-- (void)setButtonsTextColor:(UIColor *)color;
-- (void)setButtonsShadowColor:(UIColor *)color;
-- (void)setMessageShadowColor:(UIColor *)color;
 @end
 
 
