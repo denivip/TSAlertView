@@ -64,7 +64,6 @@
 
 @interface TSAlertView (private)
 @property (nonatomic, readonly) NSMutableArray* buttons;
-@property (nonatomic, copy) UIFont *messageFont;
 @property (nonatomic, readonly) UILabel* titleLabel;
 @property (nonatomic, readonly) UILabel* messageLabel;
 @property (nonatomic, readonly) UITextView* messageTextView;
@@ -134,7 +133,7 @@
 @synthesize buttonsTextShadowOffset = _buttonsTextShadowOffset;
 @synthesize messageShadowColor = _messageShadowColor;
 @synthesize buttonsTextColor = _buttonsTextColor;
-@synthesize buttonsShadowColor = _buttonsShadowColor;
+@synthesize buttonsTextShadowColor = _buttonsShadowColor;
 
 const CGFloat kTSAlertView_LeftMargin	= 18.0;
 const CGFloat kTSAlertView_TopMargin	= 16.0;
@@ -225,6 +224,7 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 	buttonLayout = TSAlertViewButtonLayoutNormal;
 	cancelButtonIndex = -1;
 	firstOtherButtonIndex = -1;
+    [self setMessageFont:[UIFont systemFontOfSize:14]];
 
     [self.buttons addObject:[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 0)]];
     self.hasButtons = NO;
@@ -339,7 +339,7 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 	if ( _messageLabel == nil )
 	{
 		_messageLabel = [[UILabel alloc] init];
-		_messageLabel.font = _messageFont;
+		_messageLabel.font = self.messageFont;
 		_messageLabel.backgroundColor = [UIColor clearColor];
 		_messageLabel.textColor = [UIColor whiteColor];
 		_messageLabel.textAlignment = UITextAlignmentCenter;
@@ -356,7 +356,7 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 	{
 		_messageTextView = [[UITextView alloc] init];
 		_messageTextView.editable = NO;
-        _messageTextView.font = _messageFont;
+        _messageTextView.font = self.messageFont;
 		_messageTextView.backgroundColor = [UIColor whiteColor];
 		_messageTextView.textColor = [UIColor darkTextColor];
 		_messageTextView.textAlignment = UITextAlignmentLeft;
@@ -461,12 +461,12 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 	[b setBackgroundImage: buttonBgPressed forState: UIControlStateHighlighted];
 }
 
--(void)setButtonsShadowOffset:(CGSize)shadowOffset {
+-(void)setButtonsTextShadowOffset:(CGSize)shadowOffset {
     for (UIButton *b in self.buttons) b.titleLabel.shadowOffset =
         CGSizeMake(shadowOffset.width/self.contentScaleFactor, shadowOffset.height/self.contentScaleFactor);
 }
 
--(void)setButtonsShadowColor:(UIColor *)color {
+-(void)setButtonsTextShadowColor:(UIColor *)color {
     for (UIButton  *b in self.buttons) [b setTitleShadowColor:color forState:UIControlStateNormal];
 }
 

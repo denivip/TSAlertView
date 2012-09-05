@@ -53,7 +53,7 @@
 	av.title = @"";
     UIFont *font = REGULAR_FONT_OF_SIZE(14);
     [av setMessageFont:font];
-	av.message = @"Съешь ещё этих мягких французских булок да выпей чаю в нашем приложении всего за $99.99";
+	[av setMessage:@"Съешь ещё этих мягких французских булок да выпей чаю в нашем приложении всего за $99.99"];
     
     [av setMessageShadowOffset:CGSizeMake(0, -1)];
     [av setMessageShadowColor:[UIColor blackColor]];
@@ -63,8 +63,8 @@
 	[av addButtonWithTitle:@"Button1" font:buttonFont];
 	[av addButtonWithTitle:@"Button2" font:buttonFont];
     
-    [av setButtonsShadowOffset:CGSizeMake(0, 1)];
-    [av setButtonsShadowColor:[UIColor whiteColor]];
+    [av setButtonsTextShadowOffset:CGSizeMake(0, 1)];
+    [av setButtonsTextShadowColor:[UIColor whiteColor]];
     [av setButtonsTextColor:[UIColor blackColor]];
 
 	[av show];

@@ -79,7 +79,7 @@ typedef enum
 @property (nonatomic) CGSize buttonsTextShadowOffset;
 @property (nonatomic, retain) UIColor *messageShadowColor;
 @property (nonatomic, retain) UIColor *buttonsTextColor;
-@property (nonatomic, retain) UIColor *buttonsShadowColor;
+@property (nonatomic, retain) UIColor *buttonsTextShadowColor;
 
 - (id) initWithResBundleName:(NSString *)bundleName;
 - (id)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ...;
