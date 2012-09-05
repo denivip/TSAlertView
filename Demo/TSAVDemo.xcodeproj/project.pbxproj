@@ -26,7 +26,7 @@
 /* Begin PBXFileReference section */
 		0110735812EBA60D00BAC93C /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.mdown; path = ../README.mdown; sourceTree = SOURCE_ROOT; };
 		013DD51A12ECF0D300B34A41 /* Source Code License.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "Source Code License.rtf"; path = "../Source Code License.rtf"; sourceTree = "<group>"; };
-		01A5389812E954E400B0F4A4 /* TSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAlertView.h; sourceTree = "<group>"; };
+		01A5389812E954E400B0F4A4 /* TSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSAlertView.h; sourceTree = "<group>"; wrapsLines = 1; };
 		01A5389912E954E400B0F4A4 /* TSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSAlertView.m; sourceTree = "<group>"; };
 		01A5399912E9F4A600B0F4A4 /* TSAVDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSAVDemoViewController.h; path = Classes/TSAVDemoViewController.h; sourceTree = "<group>"; };
 		01A5399A12E9F4A600B0F4A4 /* TSAVDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSAVDemoViewController.m; path = Classes/TSAVDemoViewController.m; sourceTree = "<group>"; };

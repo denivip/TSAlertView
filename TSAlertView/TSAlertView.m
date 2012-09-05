@@ -129,6 +129,13 @@
 @synthesize alertViewController = _alertViewController;
 @synthesize overlayWindow = _overlayWindow;
 
+@synthesize messageFont = _messageFont;
+@synthesize messageShadowOffset = _messageShadowOffset;
+@synthesize buttonsTextShadowOffset = _buttonsTextShadowOffset;
+@synthesize messageShadowColor = _messageShadowColor;
+@synthesize buttonsTextColor = _buttonsTextColor;
+@synthesize buttonsShadowColor = _buttonsShadowColor;
+
 const CGFloat kTSAlertView_LeftMargin	= 18.0;
 const CGFloat kTSAlertView_TopMargin	= 16.0;
 const CGFloat kTSAlertView_BottomMargin = 22.0;

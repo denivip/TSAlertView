@@ -48,7 +48,6 @@ typedef enum
 	UIImage*				_backgroundImage;
     UILabel*				_titleLabel;
 	UILabel*				_messageLabel;
-    UIFont*                 _messageFont;
 	UITextView*				_messageTextView;
 	UIImageView*			_messageTextViewMaskImageView;
 	UITextField*			_inputTextField;
@@ -74,6 +73,13 @@ typedef enum
 @property(nonatomic) BOOL hasButtons;
 @property(nonatomic, retain) TSAlertOverlayWindow *overlayWindow;
 @property(nonatomic, retain) TSAlertViewController *alertViewController;
+
+@property (nonatomic, retain) UIFont *messageFont;
+@property (nonatomic) CGSize messageShadowOffset;
+@property (nonatomic) CGSize buttonsTextShadowOffset;
+@property (nonatomic, retain) UIColor *messageShadowColor;
+@property (nonatomic, retain) UIColor *buttonsTextColor;
+@property (nonatomic, retain) UIColor *buttonsShadowColor;
 
 - (id) initWithResBundleName:(NSString *)bundleName;
 - (id)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ...;
