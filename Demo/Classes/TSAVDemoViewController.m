@@ -48,15 +48,21 @@
 	[_widthTextField resignFirstResponder];
 	[_maxHeightTextField resignFirstResponder];
 	
-	TSAlertView *av = [[TSAlertView alloc] initWithResBundleName:@"res"];
+	TSAlertView *av = [[TSAlertView alloc] init];
     
-	av.title = @"";
+	[av setTitle:@""];
     UIFont *font = REGULAR_FONT_OF_SIZE(14);
     [av setMessageFont:font];
 	[av setMessage:@"Съешь ещё этих мягких французских булок да выпей чаю в нашем приложении всего за $99.99"];
     
     [av setMessageShadowOffset:CGSizeMake(0, -1)];
     [av setMessageShadowColor:[UIColor blackColor]];
+    
+    NSString *bundleName = @"res";
+    NSBundle *resourceBundle = [NSBundle bundleWithPath:[[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:[bundleName stringByAppendingString:@".bundle"]]];
+    
+    [av setBackgroundImage:[[UIImage imageWithContentsOfFile:[resourceBundle pathForResource:@"bg_alert" ofType:@"png"]] stretchableImageWithLeftCapWidth:20 topCapHeight:25]];
+    [av setButtonImageNormal:[[UIImage imageWithContentsOfFile:[resourceBundle pathForResource:@"btn_alert" ofType:@"png"]] stretchableImageWithLeftCapWidth:14 topCapHeight:22]];
     
     UIFont *buttonFont = BOLD_FONT_OF_SIZE(19);
     
@@ -66,7 +72,7 @@
     [av setButtonsTextShadowOffset:CGSizeMake(0, 1)];
     [av setButtonsTextShadowColor:[UIColor whiteColor]];
     [av setButtonsTextColor:[UIColor blackColor]];
-
+    
 	[av show];
 }
 

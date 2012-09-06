@@ -63,11 +63,11 @@
 @end
 
 @interface TSAlertView ()
+@property (nonatomic, assign) id<TSAlertViewDelegate> delegate;
 @property (nonatomic, readonly) NSMutableArray* buttons;
 @property (nonatomic, readonly) UILabel* titleLabel;
 @property (nonatomic, readonly) UILabel* messageLabel;
 @property (nonatomic, readonly) UITextView* messageTextView;
-@property (nonatomic, weak) NSBundle *resourceBundle;
 @property (nonatomic) BOOL hasButtons;
 @property (nonatomic, retain) TSAlertViewController *alertViewController;
 @property (nonatomic, retain) TSAlertOverlayWindow *overlayWindow;
@@ -127,7 +127,6 @@
 @synthesize width;
 @synthesize maxHeight;
 @synthesize usesMessageTextView;
-@synthesize backgroundImage = _backgroundImage;
 @synthesize style;
 
 @synthesize messageFont = _messageFont;
@@ -137,10 +136,15 @@
 @synthesize buttonsTextColor = _buttonsTextColor;
 @synthesize buttonsTextShadowColor = _buttonsShadowColor;
 
-@synthesize resourceBundle = _resourceBundle;
 @synthesize hasButtons = _hasButtons;
 @synthesize alertViewController = _alertViewController;
 @synthesize overlayWindow = _overlayWindow;
+
+@synthesize backgroundImage = _backgroundImage;
+@synthesize shadowImage = _shadowImage;
+@synthesize buttonImageNormal = _buttonImageNormal;
+@synthesize buttonImagePressed = _buttonImagePressed;
+
 
 const CGFloat kTSAlertView_LeftMargin	= 18.0;
 const CGFloat kTSAlertView_TopMargin	= 16.0;
@@ -148,7 +152,8 @@ const CGFloat kTSAlertView_BottomMargin = 22.0;
 const CGFloat kTSAlertView_RowMargin	= 8.0;
 const CGFloat kTSAlertView_ColumnMargin = 10.0;
 
-#pragma mark --Init block
+#pragma mark -
+#pragma mark - Init block
 
 - (id) init
 {
@@ -157,15 +162,6 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 		[self TSAlertView_commonInit];
 	}
 	return self;
-}
-
--(id) initWithResBundleName:(NSString *)bundleName {
-    if (self=[self init]) {
-        self.resourceBundle = [NSBundle bundleWithPath:[[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:  [bundleName stringByAppendingString:@".bundle"]]];
-        if (!self.resourceBundle)  self.resourceBundle = [NSBundle mainBundle];
-    }
-    
-    return self;
 }
 
 - (id) initWithFrame:(CGRect)frame
@@ -237,7 +233,8 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
     self.hasButtons = NO;
 }
 
-#pragma mark --Deallocate
+#pragma mark -
+#pragma mark - Deallocate
 
 - (void)dealloc
 {
@@ -246,7 +243,8 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 	NSLog( @"TSAlertView: TSAlertOverlayWindow dealloc" );
 }
 
-#pragma mark --Overloaded parent methods
+#pragma mark -
+#pragma mark - Overloaded parent methods
 - (CGSize) sizeThatFits: (CGSize) unused 
 {
 	CGSize s = [self recalcSizeAndLayout: NO];
@@ -265,7 +263,8 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
     drawGloss(self.bounds);
 }
 
-#pragma mark --Setters and Getters
+#pragma mark -
+#pragma mark - Setters and Getters
 - (void) setWidth:(CGFloat) w
 {
 	if ( w <= 0 )
@@ -379,9 +378,9 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 {
 	if ( _messageTextViewMaskImageView == nil )
 	{
-		UIImage* shadowImage = [[UIImage imageWithContentsOfFile:[self.resourceBundle pathForResource:@"TSAlertViewMessageListViewShadow" ofType:@"png"]] stretchableImageWithLeftCapWidth:6 topCapHeight:7];
+//		UIImage* shadowImage = [[UIImage imageWithContentsOfFile:[self.resourceBundle pathForResource:@"TSAlertViewMessageListViewShadow" ofType:@"png"]] stretchableImageWithLeftCapWidth:6 topCapHeight:7];
 		
-		_messageTextViewMaskImageView = [[UIImageView alloc] initWithImage: shadowImage];
+		_messageTextViewMaskImageView = [[UIImageView alloc] initWithImage: self.shadowImage];
 		_messageTextViewMaskImageView.userInteractionEnabled = NO;
 		_messageTextViewMaskImageView.layer.masksToBounds = YES;
 		_messageTextViewMaskImageView.layer.cornerRadius = 6;
@@ -400,15 +399,34 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 	return _inputTextField;
 }
 
+- (UIImage *) shadowImage {
+    if (!_shadowImage) {
+        self.shadowImage = [[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"TSAlertViewMessageListViewShadow" ofType:@"png"]] stretchableImageWithLeftCapWidth:6 topCapHeight:7];
+    }
+    return _shadowImage;
+}
+
 - (UIImage*) backgroundImage
 {
-	if ( _backgroundImage == nil )
+	if (!_backgroundImage)
 	{
-        NSString *path = [self.resourceBundle pathForResource:@"bg_alert" ofType:@"png"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"bg_alert" ofType:@"png"];
         self.backgroundImage = [[[UIImage alloc] initWithContentsOfFile:path] stretchableImageWithLeftCapWidth:20 topCapHeight:25];
 	}
 	
 	return _backgroundImage;
+}
+
+- (UIImage *) buttonImageNormal {
+    if (!_buttonImageNormal)
+        self.buttonImageNormal = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"btn_alert" ofType:@"png"]];
+    return _buttonImageNormal;
+}
+
+- (UIImage *) buttonImagePressed {
+    if (!_buttonImagePressed)
+        self.buttonImagePressed = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"TSAlertViewButtonBackground_Highlighted" ofType:@"png"]];
+    return _buttonImagePressed;
 }
 
 - (void) setTitle:(NSString *)t
@@ -458,14 +476,8 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 	cancelButtonIndex = buttonIndex;
 	
 	UIButton* b = [self.buttons objectAtIndex: buttonIndex];
-	
-	UIImage* buttonBgNormal = [UIImage imageWithContentsOfFile:[self.resourceBundle pathForResource:@"TSAlertViewCancelButtonBackground" ofType:@"png"]];
-	buttonBgNormal = [buttonBgNormal stretchableImageWithLeftCapWidth: buttonBgNormal.size.width / 2.0 topCapHeight: buttonBgNormal.size.height / 2.0];
-	[b setBackgroundImage: buttonBgNormal forState: UIControlStateNormal];
-	
-	UIImage* buttonBgPressed = [UIImage imageWithContentsOfFile:[self.resourceBundle pathForResource:@"TSAlertViewButtonBackground_Highlighted" ofType:@"png"]];
-	buttonBgPressed = [buttonBgPressed stretchableImageWithLeftCapWidth: buttonBgPressed.size.width / 2.0 topCapHeight: buttonBgPressed.size.height / 2.0];
-	[b setBackgroundImage: buttonBgPressed forState: UIControlStateHighlighted];
+    [b setBackgroundImage: self.buttonImageNormal forState: UIControlStateNormal];
+	[b setBackgroundImage: self.buttonImagePressed forState: UIControlStateHighlighted];
 }
 
 -(void)setButtonsTextShadowOffset:(CGSize)shadowOffset {
@@ -785,10 +797,7 @@ const CGFloat kTSAlertView_ColumnMargin = 10.0;
 	[b setTitle: t forState: UIControlStateNormal];
     [b.titleLabel setFont:font];
 	
-    NSString *path = [self.resourceBundle pathForResource:@"btn_alert" ofType:@"png"];
-	UIImage* buttonBgNormal = [[UIImage alloc] initWithContentsOfFile:path];
-	buttonBgNormal = [buttonBgNormal stretchableImageWithLeftCapWidth: buttonBgNormal.size.width / 2.0 topCapHeight: buttonBgNormal.size.height / 2.0];
-	[b setBackgroundImage: buttonBgNormal forState: UIControlStateNormal];
+	[b setBackgroundImage: self.buttonImageNormal forState: UIControlStateNormal];
 	
     //	UIImage* buttonBgPressed = [UIImage imageNamed: @"TSAlertViewButtonBackground_Highlighted.png"];
     //	buttonBgPressed = [buttonBgPressed stretchableImageWithLeftCapWidth: buttonBgPressed.size.width / 2.0 topCapHeight: buttonBgPressed.size.height / 2.0];
@@ -920,7 +929,3 @@ void drawGloss(CGRect bounds) {
 }
 
 @end
-
-
-
-

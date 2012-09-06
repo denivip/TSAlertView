@@ -55,7 +55,6 @@ typedef enum
 }
 @property(nonatomic, copy) NSString *title;
 @property(nonatomic, copy) NSString *message;
-@property(nonatomic, assign) id<TSAlertViewDelegate> delegate;
 @property(nonatomic) NSInteger cancelButtonIndex;
 @property(nonatomic, readonly) NSInteger firstOtherButtonIndex;
 @property(nonatomic, readonly) NSInteger numberOfButtons;
@@ -76,7 +75,10 @@ typedef enum
 @property (nonatomic, weak) UIColor *buttonsTextColor;
 @property (nonatomic, weak) UIColor *buttonsTextShadowColor;
 
-- (id) initWithResBundleName:(NSString *)bundleName;
+@property (nonatomic, retain) UIImage *shadowImage;
+@property (nonatomic, retain) UIImage *buttonImageNormal;
+@property (nonatomic, retain) UIImage *buttonImagePressed;
+
 - (id)initWithTitle:(NSString *)title message:(NSString *)message delegate:(id)delegate cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSString *)otherButtonTitles, ...;
 - (NSInteger)addButtonWithTitle:(NSString *)title;
 - (NSInteger)addButtonWithTitle:(NSString *)title font:(UIFont *)font;
