@@ -20,7 +20,6 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		745D8BA015EFBAB200875A00 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 745D8B9E15EFBAB200875A00 /* OpenSans-Bold.ttf */; };
 		745D8BA115EFBAB200875A00 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 745D8B9F15EFBAB200875A00 /* OpenSans-Regular.ttf */; };
-		74B0090915F7506300121A15 /* res.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 74B0090815F7506300121A15 /* res.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +43,6 @@
 		745D8B9E15EFBAB200875A00 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Bold.ttf"; path = "../../../../Downloads/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		745D8B9F15EFBAB200875A00 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "../../../../Downloads/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		745D8C1015EFBB5800875A00 /* fonts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fonts.h; sourceTree = "<group>"; };
-		74B0090815F7506300121A15 /* res.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = res.bundle; path = ../res.bundle; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* TSAVDemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TSAVDemo-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,7 +81,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				74B0090815F7506300121A15 /* res.bundle */,
 				745D8C0E15EFBB2E00875A00 /* fonts */,
 				013DD51A12ECF0D300B34A41 /* Source Code License.rtf */,
 				0110735812EBA60D00BAC93C /* README.mdown */,
@@ -195,7 +192,6 @@
 				013DD51B12ECF0D300B34A41 /* Source Code License.rtf in Resources */,
 				745D8BA015EFBAB200875A00 /* OpenSans-Bold.ttf in Resources */,
 				745D8BA115EFBAB200875A00 /* OpenSans-Regular.ttf in Resources */,
-				74B0090915F7506300121A15 /* res.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

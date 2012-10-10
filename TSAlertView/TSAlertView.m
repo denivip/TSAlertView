@@ -63,7 +63,6 @@
 @end
 
 @interface TSAlertView ()
-@property (nonatomic, assign) id<TSAlertViewDelegate> delegate;
 @property (nonatomic, readonly) NSMutableArray* buttons;
 @property (nonatomic, readonly) UILabel* titleLabel;
 @property (nonatomic, readonly) UILabel* messageLabel;
